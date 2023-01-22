@@ -66,7 +66,7 @@ public final class Enigma {
         // TO DO - add your implementation
     }
 
-    public static String caesarShift(String message, int shift, bool encode){
+    public static String caesarShift(String message, int shift, boolean encode){
         /* The CaesarShift method should take a message and shift each character [A-Z] by the 
         value shift, incrementing or decrementing the value of shift by 1 or -1 with each 
         character shifted if given a positive shift value if encode = true otherwise shifted
@@ -87,6 +87,18 @@ public final class Enigma {
         Example input message: "Apples", rotor: HFPMRIBTJWYDXQLGUKOVSNAZEC
         Example outout: "HGGDRO" */
         // TO DO - add your implementation
+        String alphabet = "ABCDEFGHIJKLMNOPQRSTVUWXYZ";
+        StringBuilder sb = new StringBuilder();
+        message = message.toUpperCase();
+
+        for (int i = 0; i <= message.length() - 1; i++){
+            char c = message.charAt(i);
+            int index = alphabet.indexOf(c);
+            c = (index > rotor.length() - 1) ? c : rotor.charAt(index);
+            sb.append(c);
+        }
+
+        return sb.toString();
     }
 
     private static String reverseRotor(String message, String rotor){
