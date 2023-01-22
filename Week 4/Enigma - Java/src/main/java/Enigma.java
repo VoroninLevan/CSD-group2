@@ -5,6 +5,7 @@ import java.util.List;
 
 public final class Enigma {
 
+    private static final String ALPHABET = "ABCDEFGHIJKLMNOPQRSTVUWXYZ";
     /*
     Encodes the supplied string message by formatting the input message first, then
     applying an initial CaesarShift then applying the keys within the List rotors. 
@@ -94,5 +95,16 @@ public final class Enigma {
         with the corresponding character in the rotor as above. */
         
         // TO DO - add your implementation
+        StringBuilder sb = new StringBuilder();
+        message = message.toUpperCase();
+
+        for (int i = 0; i <= message.length() - 1; i++){
+            char c = message.charAt(i);
+            int index = rotor.indexOf(c);
+            c = (index > ALPHABET.length() - 1) ? c : ALPHABET.charAt(index);
+            sb.append(c);
+        }
+
+        return sb.toString();
     }
 }
