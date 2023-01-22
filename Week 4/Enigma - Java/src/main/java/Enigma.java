@@ -64,6 +64,9 @@ public final class Enigma {
         Example output: "Test message. Working. */
 
         // TO DO - add your implementation
+        message = message.replace('?', ' ');
+        message = message.replace('€', '.');
+        return message;
     }
 
     public static String caesarShift(String message, int shift, bool encode){
